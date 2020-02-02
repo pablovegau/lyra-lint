@@ -29,12 +29,6 @@ module.exports = {
     ...CUSTOM_RULES,
   },
   settings: {
-    'import/resolver': {
-      webpack: {
-        config: './config/dist.js',
-      },
-    },
-    'import/core-modules': ['config'],
     react: {
       version: 'detect',
     },
