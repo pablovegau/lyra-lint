@@ -22,13 +22,32 @@ npm install --save-dev lyra-lint
 
 ## Usage
 
-Add these scripts to the `package.json`:
+1. Add these scripts to the `package.json`:
 
 ```json
 "eslint": "./node_modules/.bin/eslint \"src/**/*.{js,jsx}\"",
 "stylelint": "./node_modules/.bin/stylelint \"src/**/*.{js,jsx}\"",
 "format": "npm run prettier -- --write",
-"prettier": "./node_modules/.bin/prettier \"src/**/*.{js,jsx,css,json}\" --config ./node_modules/lyra-lint/.prettierrc.js"
+"prettier": "./node_modules/.bin/prettier \"src/**/*.{js,jsx,css,json}\"",
+```
+
+2. Add as a new property in the `package.json` in order to find the `.prettierrc` config from the package:
+
+```json
+  "name": "",
+  "version": "",
+  "description": "",
+  "main": "",
+  "scripts": {},
+  "keywords": [],
+  "author": "",
+  "license": "",
+  "eslintConfig": {},
+  "stylelint": {},
+  "prettier": "./node_modules/lyra-lint/.prettierrc.js",
+  "husky": {},
+  "lint-staged": {},
+  "devDependencies": {}
 ```
 
 #### Lint JS files
