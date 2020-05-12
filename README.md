@@ -1,6 +1,13 @@
-# lyra lint
+# Lyra lint 🐈
 
-Opinated linter library for React using styled-components
+Opinated linter library for React
+
+## Table of contents
+
+1. [Installation](#installation)
+2. [Usage](#usage)
+3. [Scripts](#scripts)
+4. [Using with Husky](#using-with-husky)
 ​
 ## Installation
 
@@ -9,73 +16,64 @@ Opinated linter library for React using styled-components
 npm install --save-dev lyra-lint
 ```
 
-2. Add these lines to `package.json`:
+## Usage
+
+1. Add these scripts to the `package.json` *optional:
+
+```json
+"lint": "./node_modules/.bin/eslint --ignore-path .gitignore .",
+"prettier": "prettier --ignore-path .gitignore \"**/*.+(js|json)\"",
+"format": "npm run prettier -- --write",
+"check-format": "npm run prettier -- --list-different",
+"validate": "npm run check-format && npm run lint"
+```
+
+2. Add as a new property in the `package.json` to extends *lyra-lint* configuration:
 ​
 ```json
 "eslintConfig": {
    "extends": ["./node_modules/lyra-lint/.eslintrc.js"]
- },
- "stylelint": {
-   "extends": "./node_modules/lyra-lint/stylelint.config.js"
- },
+ }
 ```
 
-## Usage
-
-1. Add these scripts to the `package.json`:
+3. Add as a new property in the `package.json` in order to find the `.prettierrc` config from the package:
 
 ```json
-"eslint": "./node_modules/.bin/eslint \"src/**/*.{js,jsx}\"",
-"stylelint": "./node_modules/.bin/stylelint \"src/**/*.{js,jsx}\"",
-"format": "npm run prettier -- --write",
-"prettier": "./node_modules/.bin/prettier \"src/**/*.{js,jsx,css,json}\"",
-```
-
-2. Add as a new property in the `package.json` in order to find the `.prettierrc` config from the package:
-
-```json
-  "name": "",
-  "version": "",
-  "description": "",
-  "main": "",
-  "scripts": {},
-  "keywords": [],
-  "author": "",
-  "license": "",
-  "eslintConfig": {},
-  "stylelint": {},
   "prettier": "./node_modules/lyra-lint/.prettierrc.js",
-  "husky": {},
-  "lint-staged": {},
-  "devDependencies": {}
 ```
 
-#### Lint JS files
+## Scripts
+
+#### Lint (every JS file except the listed in the project .gitignore file)
 
 ```sh
-$ npm run eslint [options]
+$ npm run lint
 ```
 
-#### Fix JS files
+#### Lint and fix problems (the ones eslint can fix by itself)
 
 ```sh
-$ npm run eslint -- --fix [options]
+$ npm run eslint -- --fix
 ```
 
-#### Format JS files
+#### Format JS and JSON files (except the listed in the project .gitignore file)
 
 ```sh
-$ npm run format [options]
+$ npm run format
 ```
 
-#### Lint Styled-Components
+#### Print the filenames of files that are different from Prettier formatting
 
 ```sh
-$ npm run stylelint [options]
+$ npm run check-format
 ```
 
-#### Fix Styled-Components
+#### Execute the check-format script and the lint script
 
 ```sh
-$ npm run stylelint -- --fix [options]
+$ npm run check-format
 ```
+
+## Using with Husky
+
+In order to avoid problems with Husky you need to install Eslint and Prettier into your project as a devDependency
