@@ -1,4 +1,5 @@
-const { CUSTOM_RULES } = require('./constants');
+const prettierOptions = require('./.prettierrc.js');
+const { CUSTOM_RULES, LEVEL_RULES } = require('./constants');
 
 module.exports = {
   env: {
@@ -26,6 +27,7 @@ module.exports = {
   },
   plugins: ['babel', 'cypress', 'prettier', 'react', 'react-hooks', 'import', 'jsx-a11y'],
   rules: {
+    'prettier/prettier': [LEVEL_RULES.ERROR, prettierOptions],
     ...CUSTOM_RULES,
   },
   settings: {
