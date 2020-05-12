@@ -18,11 +18,11 @@ module.exports = {
   ],
   parser: 'babel-eslint',
   parserOptions: {
+    ecmaVersion: 2019,
+    sourceType: 'module',
     ecmaFeatures: {
       jsx: true,
     },
-    ecmaVersion: 2018,
-    sourceType: 'module',
   },
   plugins: ['babel', 'cypress', 'prettier', 'react', 'react-hooks', 'import', 'jsx-a11y'],
   rules: {
