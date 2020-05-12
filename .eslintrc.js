@@ -10,11 +10,10 @@ module.exports = {
     node: true,
   },
   extends: [
-    'standard',
-    'standard-react',
+    'eslint:recommended',
+    'plugin:react/recommended',
     'prettier',
     'prettier/react',
-    'prettier/standard',
     'plugin:jsx-a11y/recommended',
   ],
   parser: 'babel-eslint',

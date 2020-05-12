@@ -23,7 +23,7 @@ npm install --save-dev lyra-lint
 1. Add these scripts to the `package.json` *optional:
 
 ```json
-"lint": "./node_modules/.bin/eslint --ignore-path .gitignore .",
+"lint": "eslint --ignore-path .gitignore .",
 "prettier": "prettier --ignore-path .gitignore \"**/*.+(js|json)\"",
 "format": "npm run prettier -- --write",
 "check-format": "npm run prettier -- --list-different",
