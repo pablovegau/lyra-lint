@@ -1,5 +1,7 @@
 # Lyra lint 🐈
 
+[![](https://img.shields.io/npm/v/lyra-lint)](https://www.npmjs.com/package/lyra-lint)
+
 Opinated linter library for React
 
 ## Table of contents
